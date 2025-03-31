@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Gold color palette as CSS variables */
+    --color-gold-50: 255 249 230;
+    --color-gold-100: 255 241 204;
+    --color-gold-200: 255 232 179;
+    --color-gold-300: 255 224 153;
+    --color-gold-400: 255 216 128;
+    --color-gold-500: 255 208 102;
+    --color-gold-600: 255 200 77;
+    --color-gold-700: 255 192 51;
+    --color-gold-800: 255 184 26;
+    --color-gold-900: 255 176 0;
+    --color-dark-gold: 184 134 11;
+  }
+
+  /* Define utility classes using the CSS variables */
+  .bg-gold-50  {
+    background-color: rgb(var(--color-gold-50));
+  }
+  .bg-gold-100 {
+    background-color: rgb(var(--color-gold-100));
+  }
+  .bg-gold-200 {
+    background-color: rgb(var(--color-gold-200));
+  }
+  .bg-gold-300 {
+    background-color: rgb(var(--color-gold-300));
+  }
+  .bg-gold-400 {
+    background-color: rgb(var(--color-gold-400));
+  }
+  .bg-gold-500 {
+    background-color: rgb(var(--color-gold-500));
+  }
+  .bg-gold-600 {
+    background-color: rgb(var(--color-gold-600));
+  }
+  .bg-gold-700 {
+    background-color: rgb(var(--color-gold-700));
+  }
+  .bg-gold-800 {
+    background-color: rgb(var(--color-gold-800));
+  }
+  .bg-gold-900 {
+    background-color: rgb(var(--color-gold-900));
+  }
+  .bg-gold-900 {
+    background-color: rgb(var(--color-gold-900));
+  }
+  .bg-dark-gold {
+    background-color: rgb(var(--color-dark-gold));
+  }
+
+  .text-gold-50 {
+    color: rgb(var(--color-gold-50));
+  }
+  .text-gold-100 {
+    color: rgb(var(--color-gold-100));
+  }
+  .text-gold-200 {
+    color: rgb(var(--color-gold-200));
+  }
+  .text-gold-300 {
+    color: rgb(var(--color-gold-300));
+  }
+  .text-gold-400 {
+    color: rgb(var(--color-gold-400));
+  }
+  .text-gold-500 {
+    color: rgb(var(--color-gold-500));
+  }
+  .text-gold-600 {
+    color: rgb(var(--color-gold-600));
+  }
+  .text-gold-700 {
+    color: rgb(var(--color-gold-700));
+  }
+  .text-gold-800 {
+    color: rgb(var(--color-gold-800));
+  }
+  .text-gold-900 {
+    color: rgb(var(--color-gold-900));
+  }
+  .text-dark-gold {
+    color: rgb(var(--color-dark-gold));
+  }
+  .border-gold-50 {
+    border-color: rgb(var(--color-gold-50));
+  }
+  .border-gold-100 {
+    border-color: rgb(var(--color-gold-100));
+  }
+  .border-gold-200 {
+    border-color: rgb(var(--color-gold-200));
+  }
+  .border-gold-400 {
+    border-color: rgb(var(--color-gold-400));
+  }
+  .border-gold-300 {
+    border-color: rgb(var(--color-gold-300));
+  }
+  .border-gold-500 {
+    border-color: rgb(var(--color-gold-500));
+  }
+  .border-gold-600 {
+    border-color: rgb(var(--color-gold-600));
+  }
+  .border-gold-700 {
+    border-color: rgb(var(--color-gold-700));
+  }
+  .border-gold-800 {
+    border-color: rgb(var(--color-gold-800));
+  }
+  .border-gold-900 {
+    border-color: rgb(var(--color-gold-900));
+  }
+  .border-dark-gold {
+    border-color: rgb(var(--color-dark-gold));
+  }
+
+  .bg-gold-gradient {
+    background-image: linear-gradient(
+      to right,
+      rgb(var(--color-gold-500)),
+      rgb(var(--color-gold-700))
+    );
   }
 }
+/* In globals.css */
+.gold-card {
+  @apply rounded-lg bg-white p-6 shadow-md;
+  border: 1px solid rgb(var(--color-gold-300));
+}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.gold-card-title {
+  @apply mb-4 text-2xl;
+  color: rgb(var(--color-gold-700));
+}
+
+.gold-button {
+  @apply rounded px-4 py-2 text-white;
+  background-color: rgb(var(--color-gold-600));
+}
+
+.gold-button:hover {
+  background-color: rgb(var(--color-gold-700));
+}
+button {
+  @apply cursor-pointer;
+}
+.md\:dark-gold {
+  background-color: rgb(var(--color-dark-gold));
+  color: white;
 }
