@@ -1,11 +1,9 @@
 "use client"
-import { usePathname } from "next/navigation"
 import React from "react"
 import Navbar from "./client/layout/Navbar"
 import Footer from "./client/layout/Footer"
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const pathname = usePathname()
   return (
     <div className="flex h-screen flex-col">
       <div className="flex flex-1 flex-col">

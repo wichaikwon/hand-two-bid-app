@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Heart, Clock, User, ArrowLeft } from "lucide-react"
-import { usePathname, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { getStaticProps } from "next/dist/build/templates/pages"
 
 type AuctionItem = {
   id: string
@@ -27,10 +28,11 @@ type AuctionItem = {
   }[]
 }
 
-export default function AuctionDetailPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: Awaited<ReturnType<typeof getStaticProps>>["params"]
+}
+const AuctionDetailPage = ({ params }: PageProps) => {
   const router = useRouter()
-  const pathname = usePathname()
-  const id = pathname.split("/").pop()
   const [auctionItem, setAuctionItem] = useState<AuctionItem | null>(null)
   const [bidAmount, setBidAmount] = useState<string>("")
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -48,7 +50,7 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
             "Vintage wooden chair from 1920s, excellent condition. This beautiful piece has been carefully restored and maintained. The wood shows its age with a beautiful patina that adds to its character. Perfect for collectors or those looking for a unique statement piece in their home.",
           currentBid: 120,
           startingPrice: 50,
-          endTime: new Date(Date.now() + 86400000), // 1 day from now
+          endTime: new Date(Date.now() + 86400000),
           images: [
             "https://placehold.co/600x400/EEE/31343C",
             "https://placehold.co/600x400/DDD/31343C",
@@ -94,7 +96,7 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
     }
 
     updateTime()
-    const interval = setInterval(updateTime, 60000) 
+    const interval = setInterval(updateTime, 60000)
 
     return () => clearInterval(interval)
   }, [auctionItem])
@@ -315,7 +317,7 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
           <h2 className="mb-6 text-2xl font-bold">Bid History ({auctionItem.bidsCount})</h2>
           <button
             className="mb-6 text-2xl font-bold"
-            onClick={() => router.push(`/auctions/${id}/history`)}
+            onClick={() => router.push(`/auctions/history`)}
           >
             View All Bids
           </button>
@@ -356,3 +358,4 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
     </div>
   )
 }
+export default AuctionDetailPage
