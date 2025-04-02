@@ -30,14 +30,13 @@ const BidHistoryPage = () => {
     const fetchAuctionData = async () => {
       try {
         setIsLoading(true)
-        const auctionId = params.id // Unwrap params here
+        const auctionId = params.id 
 
-        // Mock data
         const mockAuction: AuctionItem = {
           id: auctionId,
           title: "Antique Wooden Chair",
           currentBid: 150,
-          endTime: new Date(Date.now() + 86400000), // 1 day from now
+          endTime: new Date(Date.now() + 86400000), 
           bids: [
             { id: "1", bidder: "Collector1", amount: 50, time: new Date(Date.now() - 86400000) },
             { id: "2", bidder: "VintageLover", amount: 60, time: new Date(Date.now() - 43200000) },

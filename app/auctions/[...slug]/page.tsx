@@ -37,16 +37,10 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
   const [error, setError] = useState<string | null>(null)
   const [timeRemaining, setTimeRemaining] = useState<string>("")
 
-  // Fetch auction data
   useEffect(() => {
     const fetchAuctionItem = async () => {
       try {
         setIsLoading(true)
-        // In a real app, you would fetch from your API
-        // const response = await fetch(`/api/auctions/${params.id}`)
-        // const data = await response.json()
-
-        // Mock data for demonstration
         const mockData: AuctionItem = {
           id: params.id,
           title: "Antique Wooden Chair",
@@ -100,7 +94,7 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
     }
 
     updateTime()
-    const interval = setInterval(updateTime, 60000) // Update every minute
+    const interval = setInterval(updateTime, 60000) 
 
     return () => clearInterval(interval)
   }, [auctionItem])
@@ -144,10 +138,6 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
       return
     }
 
-    // In a real app, you would submit to your API here
-    console.log(`Placing bid of $${amount} on item ${auctionItem.id}`)
-
-    // Mock update
     const newBid = {
       id: `${auctionItem.bids.length + 1}`,
       bidder: "You",
@@ -218,7 +208,6 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
       </button>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* Left Column - Images */}
         <div>
           <div className="relative mb-4 h-96 w-full overflow-hidden rounded-lg bg-gray-100">
             <Image
@@ -249,8 +238,6 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
             ))}
           </div>
         </div>
-
-        {/* Right Column - Details */}
         <div>
           <div className="mb-6">
             <h1 className="mb-2 text-3xl font-bold">{auctionItem.title}</h1>
@@ -293,7 +280,6 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
             </div>
           </div>
 
-          {/* Bid Form */}
           <div className="rounded-lg bg-gray-50 p-6">
             <h2 className="mb-4 text-xl font-semibold">Place a Bid</h2>
             <form onSubmit={handlePlaceBid}>
@@ -324,7 +310,6 @@ export default function AuctionDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
 
-      {/* Bid History */}
       <div className="mt-12">
         <div className="flex items-center justify-between">
           <h2 className="mb-6 text-2xl font-bold">Bid History ({auctionItem.bidsCount})</h2>
