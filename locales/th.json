@@ -1,0 +1,55 @@
+{
+  "translation": {
+    "lang": "th",
+    "layout": {
+      "lang": "TH",
+      "navbar": {
+        "navbar_item": {
+          "home_page": "หน้าแรก",
+          "auctions": "การประมูล",
+          "blog": "บล็อก",
+          "about_us": "เกี่ยวกับเรา",
+          "contact": "ติดต่อเรา",
+          "faq": "คำถามที่พบบ่อย",
+          "privacy_policy": "นโยบายความเป็นส่วนตัว",
+          "terms_of_service": "ข้อกำหนดในการให้บริการ",
+          "support": "ขอความช่วยเหลือ",
+          "sign_in": "เข้าสู่ระบบ"
+        },
+        "sign_in": {
+          "header": "เข้าสู่ระบบบัญชีของคุณ",
+          "login": "เข้าสู่ระบบ",
+          "username": "ชื่อผู้ใช้หรืออีเมล",
+          "password": "รหัสผ่าน",
+          "placeholder_username": "ชื่อผู้ใช้หรืออีเมล",
+          "placeholder_password": "รหัสผ่าน",
+          "remember_me": "จดจำฉัน",
+          "forgot_password": "ลืมรหัสผ่าน?"
+          ,
+          "reset_password": "รีเซ็ตรหัสผ่าน"
+        },
+        "register": {
+          "header": "สร้างบัญชีใหม่",
+          "register": "ลงทะเบียน",
+          "username": "ชื่อผู้ใช้",
+          "email": "อีเมล",
+          "password": "รหัสผ่าน",
+          "re-password": "ยืนยันรหัสผ่าน",
+          "placeholder_username": "ชื่อผู้ใช้",
+          "placeholder_email": "อีเมล",
+          "placeholder_password": "รหัสผ่าน",
+          "placeholder_re-password": "ยืนยันรหัสผ่าน"
+        },
+        "call": "ติดต่อเรา",
+        "email": "อีเมล",
+        "delivery": "การจัดส่งสินค้า",
+        "wishlist": "รายการโปรด",
+        "cart": "ตะกร้าสินค้า",
+        "item": "รายการ",
+        "category": "หมวดหมู่",
+        "search": "ค้นหา สินค้า",
+        "modal_search_text": "ค้นหา สินค้า, ประมูล และอื่นๆ..."
+      }
+    }
+  }
+}

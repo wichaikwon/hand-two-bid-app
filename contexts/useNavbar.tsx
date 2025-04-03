@@ -1,6 +1,7 @@
 "use client"
 import { usePathname } from "next/navigation"
 import React, { createContext, useContext, useState, ReactNode } from "react"
+import "@/i18n"
 
 interface Breadcrumb {
   label: string
@@ -45,7 +46,16 @@ export const NavbarProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   }
 
   return (
-    <NavbarContext.Provider value={{ breadcrumbs, setBreadcrumbs, addBreadcrumb, removeBreadcrumb, updateBreadcrumbs, clearBreadcrumbs }}>
+    <NavbarContext.Provider
+      value={{
+        breadcrumbs,
+        setBreadcrumbs,
+        addBreadcrumb,
+        removeBreadcrumb,
+        updateBreadcrumbs,
+        clearBreadcrumbs,
+      }}
+    >
       {children}
     </NavbarContext.Provider>
   )

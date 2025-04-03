@@ -1,0 +1,55 @@
+{
+  "translation": {
+    "lang": "en",
+    "layout": {
+      "lang": "EN",
+      "navbar": {
+        "navbar_item": {
+          "home_page": "Home",
+          "auctions": "Auctions",
+          "blog": "Blog",
+          "about_us": "About Us",
+          "contact": "Contact Us",
+          "faq": "FAQ",
+          "privacy_policy": "Privacy Policy",
+          "terms_of_service": "Terms of Service",
+          "support": "Support",
+          "sign_in": "Sign In"
+        },
+        "sign_in": {
+          "header": "Access Your Account",
+          "login": "Login",
+          "username": "Username or Email",
+          "password": "Password",
+          "placeholder_username": "Username or Email",
+          "placeholder_password": "Password"
+          ,
+          "remember_me": "Remember Me",
+          "forgot_password": "Forgot Password?",
+          "reset_password": "Reset Password"
+        },
+        "register": {
+          "header": "Register",
+          "register": "Register",
+          "username": "Username",
+          "email": "Email",
+          "password": "Password",
+          "re-password": "Re-enter Password",
+          "placeholder_username": "Username",
+          "placeholder_email": "Email",
+          "placeholder_password": "Password",
+          "placeholder_re-password": "Re-enter Password"
+        },
+        "call": "Call Us",
+        "email": "Email Us",
+        "delivery": "Order Delivery",
+        "wishlist": "Wishlist",
+        "cart": "My Cart",
+        "item": "Items",
+        "category": "Category",
+        "search": "Search for products",
+        "modal_search_text": "Search for products, auction and more..."
+      }
+    }
+  }
+}

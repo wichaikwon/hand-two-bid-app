@@ -3,10 +3,12 @@ import { Krub } from "next/font/google"
 import "./globals.css"
 import Wrapper from "../components/Wrapper"
 import { NavbarProvider } from "@/contexts/useNavbar"
+
 const krub = Krub({
   variable: "--font-krub",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap", // Ensures text is displayed while the font is loading
 })
 
 export const metadata: Metadata = {
@@ -21,6 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet"
+        />
+      </head>
       <body className={`${krub.variable} antialiased`}>
         <NavbarProvider>
           <Wrapper>{children}</Wrapper>

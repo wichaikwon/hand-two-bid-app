@@ -1,5 +1,11 @@
 @import "tailwindcss";
+:root {
+  --font-krub: sans-serif; /* Fallback font */
+}
 
+body {
+  font-family: var(--font-krub);
+}
 @layer base {
   :root {
     /* Gold color palette as CSS variables */
