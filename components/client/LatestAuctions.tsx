@@ -138,54 +138,62 @@ const LatestAuctions: React.FC = () => {
                 />
               </div>
               <div className="absolute top-0 left-0 z-50 flex flex-col gap-4 p-4">
-                <div className="relative flex items-center rounded-full bg-blue-500 p-2">
-                  <Eye
-                    size={16}
-                    className="fill-white stroke-blue-500"
-                    onMouseEnter={() => handleHover(item, 'eye', true)}
-                    onMouseLeave={() => handleHover(item, 'eye', false)}
-                  />
+                <div className="relative flex items-center">
+                  <button
+                    className="rounded-full bg-blue-500 p-2"
+                    onMouseEnter={() => handleHover(item, "eye", true)}
+                    onMouseLeave={() => handleHover(item, "eye", false)}
+                  >
+                    <Eye size={16} className="fill-white stroke-blue-500" />
+                  </button>
                   <span
-                    className={`absolute text-sm left-10 rounded-md bg-black/70 px-2 py-0.5 text-white transition-opacity duration-300 ease-in-out ${
+                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
                       hoverStates[item]?.eye ? "opacity-100" : "opacity-0"
                     }`}
                   >
                     {t("layout.latest_auctions.view_auction")}
+                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
                   </span>
                 </div>
-                <div className="relative flex items-center rounded-full bg-blue-500 p-2">
-                  <Heart
-                    size={16}
-                    className="fill-white stroke-blue-500"
-                    onMouseEnter={() => handleHover(item, 'heart', true)}
-                    onMouseLeave={() => handleHover(item, 'heart', false)}
-                  />
+                <div className="relative flex items-center">
+                  <button
+                    onMouseEnter={() => handleHover(item, "heart", true)}
+                    onMouseLeave={() => handleHover(item, "heart", false)}
+                    className="rounded-full bg-blue-500 p-2"
+                  >
+                    <Heart size={16} className="fill-white stroke-blue-500" />
+                  </button>
                   <span
-                    className={`absolute left-10 text-sm rounded-md bg-black/70 px-2 py-0.5 text-white transition-opacity duration-300 ease-in-out ${
+                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
                       hoverStates[item]?.heart ? "opacity-100" : "opacity-0"
                     }`}
                   >
                     {t("layout.latest_auctions.add_to_wishlist")}
+                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
                   </span>
                 </div>
-                <div className="relative flex items-center rounded-full bg-blue-500 p-2 text-white">
-                  <Search
-                    size={16}
-                    className="fill-white stroke-white"
-                    onMouseEnter={() => handleHover(item, 'search', true)}
-                    onMouseLeave={() => handleHover(item, 'search', false)}
-                  />
+                <div className="relative flex items-center">
+                  <button
+                    className="rounded-full bg-blue-500 p-2 text-white"
+                    onMouseEnter={() => handleHover(item, "search", true)}
+                    onMouseLeave={() => handleHover(item, "search", false)}
+                  >
+                    <Search size={16} className="fill-white stroke-white" />
+                  </button>
                   <span
-                    className={`absolute text-sm left-10 rounded-md bg-black/70 px-2 py-0.5 text-white transition-opacity duration-300 ease-in-out ${
+                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
                       hoverStates[item]?.search ? "opacity-100" : "opacity-0"
                     }`}
                   >
                     {t("layout.latest_auctions.search_auction")}
+                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
                   </span>
                 </div>
               </div>
-              <hr className="w-full text-gray-200" />
-              <span className="font-bold">{t(`layout.latest_auctions.item_name`)}</span>
+              <hr className="w-full text-gray-200 " />
+              <span className="font-bold transition-colors duration-300 hover:text-blue-500">
+                {t(`layout.latest_auctions.item_name`)}
+              </span>
               <span className="text-xs">
                 {t("layout.latest_auctions.current_bid")} : {price}
               </span>

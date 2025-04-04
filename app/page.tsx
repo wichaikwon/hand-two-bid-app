@@ -1,7 +1,6 @@
 import EmblaCarousel from "@/components/client/Carousel/EmblaCarousel"
 import React from "react"
 import { EmblaOptionsType } from "embla-carousel"
-import ExploreItem from "@/components/client/ExploreItem"
 import LatestAuctions from "@/components/client/LatestAuctions"
 
 const Home: React.FC = () => {
@@ -17,7 +16,6 @@ const Home: React.FC = () => {
   return (
     <>
       <EmblaCarousel images={IMAGES} options={OPTIONS} />
-
       <div className="container mx-auto">
         <LatestAuctions />
       </div>
