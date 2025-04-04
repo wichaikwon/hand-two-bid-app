@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   const OPTIONS: EmblaOptionsType = { loop: true }
   const IMAGES = [
     "/carousel/iPhone-wallpaper.jpg",
-    "/Carousel/mac.jpg",
+    "/carousel/mac.jpg",
     "/carousel/samsung-wallpaper.jpg",
     "/carousel/tablet.jpg",
     "/carousel/template.jpg",
