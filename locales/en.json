@@ -14,7 +14,7 @@
           "privacy_policy": "Privacy Policy",
           "terms_of_service": "Terms of Service",
           "support": "Support",
-          "sign_in": "Sign In"
+          "sign_in": "Sign In / Register"
         },
         "sign_in": {
           "header": "Access Your Account",
@@ -22,8 +22,7 @@
           "username": "Username or Email",
           "password": "Password",
           "placeholder_username": "Username or Email",
-          "placeholder_password": "Password"
-          ,
+          "placeholder_password": "Password",
           "remember_me": "Remember Me",
           "forgot_password": "Forgot Password?",
           "reset_password": "Reset Password"
@@ -49,6 +48,9 @@
         "category": "Category",
         "search": "Search for products",
         "modal_search_text": "Search for products, auction and more..."
+      },
+      "latest_auctions": {
+        "title": "Latest Auctions"
       }
     }
   }

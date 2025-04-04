@@ -9,7 +9,7 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="flex flex-1 flex-col bg-slate-50">
         <Navbar />
         <div className="min-h-0 flex-1 ">
-          <div className="container mx-auto">{children}</div>
+          <div className="">{children}</div>
         </div>
       </div>
       <Footer />

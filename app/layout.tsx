@@ -3,7 +3,7 @@ import { Krub } from "next/font/google"
 import "./globals.css"
 import Wrapper from "../components/Wrapper"
 import { NavbarProvider } from "@/contexts/useNavbar"
-
+import "./embla.css"
 const krub = Krub({
   variable: "--font-krub",
   subsets: ["latin"],
