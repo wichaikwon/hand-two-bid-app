@@ -4,13 +4,14 @@ import Link from "next/link"
 import React, { useState } from "react"
 import MenuItem from "../layout/MenuItem"
 import { t } from "i18next"
+import { useUser } from "@/contexts/useUser"
 
 const Secondbar: React.FC = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isOpenSearch, setIsOpenSearch] = useState(false)
   const [isOpenCategory, setIsOpenCategory] = useState(false)
   const [isCategory, setIsCategory] = useState<string>(t(`layout.navbar.category`))
-  const [isOpenSignIn, setIsOpenSignIn] = useState(false)
+  const { isOpen, setIsOpen } = useUser()
   return (
     <nav className="container mx-auto flex items-center justify-between border-gray-200 px-4 py-2">
       <Link href="/" className="flex-1 cursor-pointer">
@@ -73,7 +74,7 @@ const Secondbar: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center gap-4 md:hidden">
-        <button onClick={() => setIsOpenSignIn(!isOpenSignIn)}>
+        <button onClick={() => setIsOpen(!isOpen)}>
           <User size={16} />
         </button>
         <button>

@@ -1,9 +1,9 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Heart, Clock, Gavel } from "lucide-react"
 import { useRouter } from "next/navigation"
-
+import { useBreadcrumbs } from "@/contexts/useBreadcrumbs"
 type AuctionItem = {
   id: string
   title: string
@@ -18,6 +18,14 @@ type AuctionItem = {
 
 const Auctions: React.FC = () => {
   const router = useRouter()
+  const { setBreadcrumbs } = useBreadcrumbs()
+  useEffect(() => {
+    setBreadcrumbs([
+      { label: "Home", path: "/" },
+      { label: "Auctions", path: "/auctions" },
+    ])
+  }, [setBreadcrumbs])
+
   const [auctionItems, setAuctionItems] = useState<AuctionItem[]>([
     {
       id: "1",
@@ -25,7 +33,7 @@ const Auctions: React.FC = () => {
       description: "Vintage wooden chair from 1920s, excellent condition",
       currentBid: 120,
       startingPrice: 50,
-      endTime: new Date(Date.now() + 86400000), 
+      endTime: new Date(Date.now() + 86400000),
       images: ["https://placehold.co/400x300/EEE/31343C"],
       isLiked: false,
       bidsCount: 8,
@@ -36,7 +44,7 @@ const Auctions: React.FC = () => {
       description: "Limited edition 1960s wristwatch, working condition",
       currentBid: 450,
       startingPrice: 200,
-      endTime: new Date(Date.now() + 172800000), 
+      endTime: new Date(Date.now() + 172800000),
       images: ["https://placehold.co/400x300/EEE/31343C"],
       isLiked: true,
       bidsCount: 12,
@@ -47,7 +55,7 @@ const Auctions: React.FC = () => {
       description: "Original oil painting by local artist, 24x36 inches",
       currentBid: 320,
       startingPrice: 150,
-      endTime: new Date(Date.now() + 259200000), 
+      endTime: new Date(Date.now() + 259200000),
       images: ["https://placehold.co/400x300/EEE/31343C"],
       isLiked: false,
       bidsCount: 5,
@@ -69,7 +77,7 @@ const Auctions: React.FC = () => {
       description: "Designer table lamp from 1950s",
       currentBid: 210,
       startingPrice: 100,
-      endTime: new Date(Date.now() + 604800000), 
+      endTime: new Date(Date.now() + 604800000),
       images: ["https://placehold.co/400x300/EEE/31343C"],
       isLiked: true,
       bidsCount: 7,
@@ -80,7 +88,7 @@ const Auctions: React.FC = () => {
       description: "First edition novel signed by author",
       currentBid: 180,
       startingPrice: 80,
-      endTime: new Date(Date.now() + 86400000), 
+      endTime: new Date(Date.now() + 86400000),
       images: ["https://placehold.co/400x300/EEE/31343C"],
       isLiked: false,
       bidsCount: 9,
@@ -112,7 +120,7 @@ const Auctions: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-6 text-3xl font-bold">Live Auctions</h1>
-      <div className="mb-6 flex items-center flex-col md:flex-row gap-2 justify-between">
+      <div className="mb-6 flex flex-col items-center justify-between gap-2 md:flex-row">
         <div className="flex space-x-2">
           <button className="rounded-lg bg-gray-200 px-4 py-2">All Items</button>
           <button className="rounded-lg bg-gray-200 px-4 py-2">Ending Soon</button>
@@ -124,7 +132,7 @@ const Auctions: React.FC = () => {
           <option>Sort by: Highest Bid</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3  bg-white">
+      <div className="grid grid-cols-1 gap-6 bg-white sm:grid-cols-2 lg:grid-cols-3">
         {auctionItems.map((item) => (
           <div
             key={item.id}

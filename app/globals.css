@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
   --font-krub: sans-serif; /* Fallback font */
 }
@@ -16,45 +17,26 @@ body {
   flex: 0 0 100%;
   min-width: 0;
 }
-
-@layer base {
-  :root {
-    /* Gold color palette as CSS variables */
-    --color-gold-50: 255 249 230;
-    --color-gold-100: 255 241 204;
-    --color-gold-200: 255 232 179;
-    --color-gold-300: 255 224 153;
-    --color-gold-400: 255 216 128;
-    --color-gold-500: 255 208 102;
-    --color-gold-600: 255 200 77;
-    --color-gold-700: 255 192 51;
-    --color-gold-800: 255 184 26;
-    --color-gold-900: 255 176 0;
-    --color-dark-gold: 184 134 11;
-  }
-  .bg-gold-gradient {
-    @apply bg-gradient-to-r from-[rgb(var(--color-gold-500))] to-[rgb(var(--color-gold-700))];
-  }
-
   button {
     @apply cursor-pointer;
   }
+  /* Add this to your global CSS file */
+.breadcrumbs ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  /* Responsive and hover variants */
-  .gold-card {
-    @apply rounded-lg bg-white p-6 shadow-md border-[rgb(var(--color-gold-300))];
-  }
+.breadcrumbs li {
+  margin-right: 0.5rem;
+}
 
-  .gold-card-title {
-    @apply mb-4 text-2xl text-[rgb(var(--color-gold-700))];
-  }
+.breadcrumbs a {
+  text-decoration: none;
+  color: #0070f3;
+}
 
-  .gold-button {
-    @apply rounded px-4 py-2 text-white bg-[rgb(var(--color-gold-600))];
-  }
-
-  .gold-button:hover {
-    @apply bg-[rgb(var(--color-gold-700))];
-  }
-
+.breadcrumbs a:hover {
+  text-decoration: underline;
 }

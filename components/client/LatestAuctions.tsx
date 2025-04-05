@@ -88,10 +88,10 @@ const LatestAuctions: React.FC = () => {
 
   useEffect(() => {
     const auctionEndTimes = [
-      new Date(Date.now() + 86400000), // 1 วัน
-      new Date(Date.now() + 172800000), // 2 วัน
-      new Date(Date.now() + 259200000), // 3 วัน
-      new Date(Date.now() + 345600000), // 4 วัน
+      new Date(Date.now() + 86400000), 
+      new Date(Date.now() + 172800000), 
+      new Date(Date.now() + 259200000), 
+      new Date(Date.now() + 345600000), 
     ]
     setPrice(
       (Math.random() * 1000).toLocaleString("th-TH", {
@@ -105,107 +105,107 @@ const LatestAuctions: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex flex-col py-10">
+    <div className="flex flex-col py-10 overflow-x-hidden">
       <div className="flex flex-col gap-6">
-        <span className="z-30 flex w-full justify-center text-4xl font-bold">
-          {t("layout.latest_auctions.title")}
-        </span>
-        <div className="relative z-10 border-t border-slate-200">
-          <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 p-4 text-blue-500">
-            <Gavel size={32} />
+      <span className="z-30 flex w-full justify-center text-4xl font-bold">
+        {t("layout.latest_auctions.title")}
+      </span>
+      <div className="relative z-10 border-t border-slate-200">
+        <div className="absolute top-0 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-50 p-4 text-blue-500">
+        <Gavel size={32} />
+        </div>
+      </div>
+      <div className="z-10 mt-2 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {[1, 2, 3, 4].map((item) => (
+        <div
+          key={item}
+          className="relative z-20 flex flex-1 cursor-pointer flex-col items-center justify-center border border-slate-100 bg-white shadow-md overflow-hidden"
+        >
+          <div className="z-40 opacity-100 transition-opacity duration-700 ease-in-out hover:opacity-0">
+          <Image
+            src={`/phones/iPhone_16_Pro_Max_Desert_Titanium_1-square_medium.webp`}
+            alt="iPhone_16_Pro_Max_Desert_Titanium_1-square_medium"
+            width={320}
+            height={320}
+          />
+          </div>
+          <div className="absolute top-0 z-30 opacity-100 transition-opacity duration-700 ease-in-out">
+          <Image
+            src={`/phones/iPhone_16_Pro_Max_Desert_Titanium_2-square_medium.webp`}
+            alt="iPhone_16_Pro_Max_Desert_Titanium_1-square_medium"
+            width={320}
+            height={320}
+          />
+          </div>
+          <div className="absolute top-0 left-0 z-50 flex flex-col gap-4 p-2 md:p-4">
+          <div className="relative flex items-center">
+            <button
+            className="rounded-full bg-blue-500 p-2"
+            onMouseEnter={() => handleHover(item, "eye", true)}
+            onMouseLeave={() => handleHover(item, "eye", false)}
+            >
+            <Eye size={16} className="fill-white stroke-blue-500" />
+            </button>
+            <span
+            className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
+              hoverStates[item]?.eye ? "opacity-100" : "opacity-0"
+            }`}
+            >
+            {t("layout.latest_auctions.view_auction")}
+            <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
+            </span>
+          </div>
+          <div className="relative hidden md:flex items-center">
+            <button
+            onMouseEnter={() => handleHover(item, "heart", true)}
+            onMouseLeave={() => handleHover(item, "heart", false)}
+            className="rounded-full bg-blue-500 p-2"
+            >
+            <Heart size={16} className="fill-white stroke-blue-500" />
+            </button>
+            <span
+            className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
+              hoverStates[item]?.heart ? "opacity-100" : "opacity-0"
+            }`}
+            >
+            {t("layout.latest_auctions.add_to_wishlist")}
+            <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
+            </span>
+          </div>
+          <div className="relative md:flex items-center hidden">
+            <button
+            className="rounded-full bg-blue-500 p-2 text-white"
+            onMouseEnter={() => handleHover(item, "search", true)}
+            onMouseLeave={() => handleHover(item, "search", false)}
+            >
+            <Search size={16} className="fill-white stroke-white" />
+            </button>
+            <span
+            className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
+              hoverStates[item]?.search ? "opacity-100" : "opacity-0"
+            }`}
+            >
+            {t("layout.latest_auctions.search_auction")}
+            <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
+            </span>
+          </div>
+          </div>
+          <hr className="w-full text-gray-200 " />
+          <span className="font-bold transition-colors text-xs text-wrap duration-300 hover:text-blue-500">
+          {t(`layout.latest_auctions.item_name`)}
+          </span>
+          <span className="text-xs">
+          {t("layout.latest_auctions.current_bid")} : {price}
+          </span>
+          <div className="flex w-full flex-col items-center p-2">
+          <span className="mb-1 text-xs text-gray-500">
+            {t("layout.latest_auctions.auction_ends")}
+          </span>
+          <div id={`countdown-${item}`} className="w-full"></div>
           </div>
         </div>
-        <div className="z-10 mt-2 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {[1, 2, 3, 4].map((item) => (
-            <div
-              key={item}
-              className="relative z-20 flex flex-1 cursor-pointer flex-col items-center justify-center border border-slate-100 bg-white shadow-md"
-            >
-              <div className="z-40 opacity-100 transition-opacity duration-700 ease-in-out hover:opacity-0">
-                <Image
-                  src={`/phones/iPhone_16_Pro_Max_Desert_Titanium_1-square_medium.webp`}
-                  alt="iPhone_16_Pro_Max_Desert_Titanium_1-square_medium"
-                  width={320}
-                  height={320}
-                />
-              </div>
-              <div className="absolute top-0 z-30 opacity-100 transition-opacity duration-700 ease-in-out">
-                <Image
-                  src={`/phones/iPhone_16_Pro_Max_Desert_Titanium_2-square_medium.webp`}
-                  alt="iPhone_16_Pro_Max_Desert_Titanium_1-square_medium"
-                  width={320}
-                  height={320}
-                />
-              </div>
-              <div className="absolute top-0 left-0 z-50 flex flex-col gap-4 p-4">
-                <div className="relative flex items-center">
-                  <button
-                    className="rounded-full bg-blue-500 p-2"
-                    onMouseEnter={() => handleHover(item, "eye", true)}
-                    onMouseLeave={() => handleHover(item, "eye", false)}
-                  >
-                    <Eye size={16} className="fill-white stroke-blue-500" />
-                  </button>
-                  <span
-                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
-                      hoverStates[item]?.eye ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {t("layout.latest_auctions.view_auction")}
-                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
-                  </span>
-                </div>
-                <div className="relative flex items-center">
-                  <button
-                    onMouseEnter={() => handleHover(item, "heart", true)}
-                    onMouseLeave={() => handleHover(item, "heart", false)}
-                    className="rounded-full bg-blue-500 p-2"
-                  >
-                    <Heart size={16} className="fill-white stroke-blue-500" />
-                  </button>
-                  <span
-                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
-                      hoverStates[item]?.heart ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {t("layout.latest_auctions.add_to_wishlist")}
-                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
-                  </span>
-                </div>
-                <div className="relative flex items-center">
-                  <button
-                    className="rounded-full bg-blue-500 p-2 text-white"
-                    onMouseEnter={() => handleHover(item, "search", true)}
-                    onMouseLeave={() => handleHover(item, "search", false)}
-                  >
-                    <Search size={16} className="fill-white stroke-white" />
-                  </button>
-                  <span
-                    className={`absolute left-10 rounded-md bg-black/70 px-2 py-0.5 text-sm text-white transition-opacity duration-300 ease-in-out ${
-                      hoverStates[item]?.search ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    {t("layout.latest_auctions.search_auction")}
-                    <span className="absolute top-1/2 left-[-6px] h-0 w-0 -translate-y-1/2 border-t-4 border-r-6 border-b-4 border-t-transparent border-r-black/70 border-b-transparent"></span>
-                  </span>
-                </div>
-              </div>
-              <hr className="w-full text-gray-200 " />
-              <span className="font-bold transition-colors duration-300 hover:text-blue-500">
-                {t(`layout.latest_auctions.item_name`)}
-              </span>
-              <span className="text-xs">
-                {t("layout.latest_auctions.current_bid")} : {price}
-              </span>
-              <div className="flex w-full flex-col items-center p-2">
-                <span className="mb-1 text-xs text-gray-500">
-                  {t("layout.latest_auctions.auction_ends")}
-                </span>
-                <div id={`countdown-${item}`} className="w-full"></div>
-              </div>
-            </div>
-          ))}
-        </div>
+        ))}
+      </div>
       </div>
     </div>
   )

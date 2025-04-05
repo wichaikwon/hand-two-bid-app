@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { useRouter, useParams } from "next/navigation"
 import { ArrowLeft, Gavel } from "lucide-react"
+import { useBreadcrumbs } from "@/contexts/useBreadcrumbs"
 
 type Bid = {
   id: string
@@ -25,8 +26,14 @@ const BidHistoryPage = () => {
   const [auction, setAuction] = useState<AuctionItem | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const {setBreadcrumbs} = useBreadcrumbs()
 
   useEffect(() => {
+    setBreadcrumbs([
+      { label: "Home", path: "/" },
+      { label: "Auctions", path: "/auctions" },
+      { label: "Bid History", path: `/auctions/history` },
+    ])
     const fetchAuctionData = async () => {
       try {
         setIsLoading(true)

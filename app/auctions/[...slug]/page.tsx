@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Heart, Clock, User, ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { getStaticProps } from "next/dist/build/templates/pages"
+import { useBreadcrumbs } from "@/contexts/useBreadcrumbs"
 
 type AuctionItem = {
   id: string
@@ -33,6 +34,7 @@ type PageProps = {
 }
 const AuctionDetailPage = ({ params }: PageProps) => {
   const router = useRouter()
+  const { setBreadcrumbs } = useBreadcrumbs()
   const [auctionItem, setAuctionItem] = useState<AuctionItem | null>(null)
   const [bidAmount, setBidAmount] = useState<string>("")
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -40,6 +42,11 @@ const AuctionDetailPage = ({ params }: PageProps) => {
   const [timeRemaining, setTimeRemaining] = useState<string>("")
 
   useEffect(() => {
+    setBreadcrumbs([
+      { label: "Home", path: "/" },
+      { label: "Auctions", path: "/auctions" },
+      { label: `${params.id}`, path: `/auctions/${params.id}` },
+    ])
     const fetchAuctionItem = async () => {
       try {
         setIsLoading(true)

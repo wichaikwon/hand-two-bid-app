@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import { Krub } from "next/font/google"
 import "./globals.css"
 import Wrapper from "../components/Wrapper"
-import { NavbarProvider } from "@/contexts/useNavbar"
 import "./embla.css"
+import { BreadcrumbsProvider } from "@/contexts/useBreadcrumbs"
+import { UserProvider } from "@/contexts/useUser"
 const krub = Krub({
   variable: "--font-krub",
   subsets: ["latin"],
@@ -24,13 +25,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet"
-        />
+        <link rel="stylesheet" />
       </head>
       <body className={`${krub.variable} antialiased`}>
-        <NavbarProvider>
-          <Wrapper>{children}</Wrapper>
-        </NavbarProvider>
+        <BreadcrumbsProvider>
+          <UserProvider>
+            <Wrapper>{children}</Wrapper>
+          </UserProvider>
+        </BreadcrumbsProvider>
       </body>
     </html>
   )

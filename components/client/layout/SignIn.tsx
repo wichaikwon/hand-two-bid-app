@@ -101,7 +101,7 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, setIsOpen }) => {
                 <div className="flex items-center gap-2">
                   <input
                     type="checkbox"
-                    id="rememberMe"
+                    id={`rememberMe ${activeTab}`}
                     name="rememberMe"
                     checked={formData.rememberMe}
                     onChange={handleChange}

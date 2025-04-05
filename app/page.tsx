@@ -1,7 +1,9 @@
-import EmblaCarousel from "@/components/client/Carousel/EmblaCarousel"
+import EmblaCarousel from "@/components/client/carousel/EmblaCarousel"
 import React from "react"
 import { EmblaOptionsType } from "embla-carousel"
 import LatestAuctions from "@/components/client/LatestAuctions"
+import FeatureSection from "@/components/client/FeatureSection"
+import TrendingAuction from "@/components/client/trending/TrendingAuction"
 
 const Home: React.FC = () => {
   const OPTIONS: EmblaOptionsType = { loop: true }
@@ -17,7 +19,9 @@ const Home: React.FC = () => {
     <>
       <EmblaCarousel images={IMAGES} options={OPTIONS} />
       <div className="container mx-auto">
+        <TrendingAuction />
         <LatestAuctions />
+        <FeatureSection />
       </div>
     </>
   )
